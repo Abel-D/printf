@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * _printf - prints var no of arglist
  * @format: arg format
@@ -11,38 +12,33 @@ int _printf(const char *format, ...)
 	char *p = (char *)format;
 	va_list ap;
 	char *str;
-	int count = 0;
+	int count = 0, i = 0;
+	int len = strlen(p);
 
 	va_start(ap, format);
 
-	for (; *p != '\0'; p++)
+	for (i = 0; i <= len; i++)
 	{
-		while (*p != '%')
+		while (p[i] != '%')
 		{
-			p++;
+			i++;
 		}
-		p++;
+		i++;
 
-		if (*p == '%')
-			p++;
-		else
+		if (p[i] == 'c')
 		{
-			if (*p == 'c')
-			{
 
-				char x = va_arg(ap, int);
+			char x = va_arg(ap, int);
 
-				putchar(x);
-				putchar('\n');
-				count++;
+			printf("%c\n", x);
+			count++;
 
-			}
-			else if (*p == 's')
-			{
-				str = va_arg(ap, char *);
-				puts(str);
-				count++;
-			}
+		}
+		else if (*p == 's')
+		{
+			str = va_arg(ap, char *);
+			puts(str);
+			count++;
 		}
 	}
 
