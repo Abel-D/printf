@@ -35,9 +35,3 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-int main(void)
-{
-	_printf("%c", 'k');
-//	printf("%d\n",x);
-	return 1;
-}
