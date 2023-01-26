@@ -10,42 +10,41 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	char *str;
 	int count = 0;
-	char *p;
 
 	va_start(ap, format);
-	p = format;
 	while (*format != '\0')
 	{
 
-		while (*format != '%')
+		if (*format != '%')
 		{
 			printf("%c", *format);
-			format++;
 		}
-		while (*p != '\0')
+	/*	while (*p != '\0')
 		{
 			p++;
-		}
-		switch(*format)
+		}*/
+		else
 		{
-			case '%':
-				break;
-			case 'c':
+			switch(*format)
 			{
-				char x = va_arg(ap, int);
+				case '%':
+					break;
+				case 'c':
+				{
+					char x = va_arg(ap, int);
 
-				printf("%c\n", x);
-				count++;
-				break;
-			}
-			case ('s'):
-			{
-				str = va_arg(ap, char *);
-				printf("%s\n", str);
-				count++;
-				break;
+					printf("%c\n", x);
+					count++;
+					break;
+				}
+				case ('s'):
+				{
+					char *str = va_arg(ap, char *);
+					printf("%s\n", str);
+					count++;
+					break;
+				}
 			}
 		}
 
