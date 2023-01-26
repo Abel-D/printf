@@ -9,37 +9,47 @@
  */
 int _printf(const char *format, ...)
 {
-	char *p = (char *)format;
 	va_list ap;
 	char *str;
-	int count = 0, i = 0;
-	int len = strlen(p);
+	int count = 0;
+	char *p;
 
 	va_start(ap, format);
-
-	for (i = 0; i <= len; i++)
+	p = format;
+	while (*format != '\0')
 	{
-		while (p[i] != '%')
+
+		while (*format != '%')
 		{
-			i++;
+			printf("%c", *format);
+			format++;
 		}
-		i++;
-
-		if (p[i] == 'c')
+		while (*p != '\0')
 		{
-
-			char x = va_arg(ap, int);
-
-			printf("%c\n", x);
-			count++;
-
+			p++;
 		}
-		else if (*p == 's')
+		switch(*format)
 		{
-			str = va_arg(ap, char *);
-			puts(str);
-			count++;
+			case '%':
+				break;
+			case 'c':
+			{
+				char x = va_arg(ap, int);
+
+				printf("%c\n", x);
+				count++;
+				break;
+			}
+			case ('s'):
+			{
+				str = va_arg(ap, char *);
+				printf("%s\n", str);
+				count++;
+				break;
+			}
 		}
+
+		format++;
 	}
 
 	va_end(ap);
