@@ -37,10 +37,18 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				}
-				case ('s'):
+				case 's':
 				{
 					str = va_arg(ap, char *);
 					printf("%s", str);
+					count++;
+					break;
+				}
+				case 'd':
+				{
+					int k = va_arg(ap, int);
+
+					printf("%d", k);
 					count++;
 					break;
 				}
