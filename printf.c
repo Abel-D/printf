@@ -20,35 +20,44 @@ int _printf(const char *format, ...)
 		{
 			printf("%c", *format);
 		}
-	/*	while (*p != '\0')
-		{
-			p++;
-		}*/
 		else
 		{
+			format++;
 			switch(*format)
 			{
-				case '%':
-					break;
 				case 'c':
 				{
 					char x = va_arg(ap, int);
 
-					printf("%c\n", x);
+					putchar(x);
 					count++;
 					break;
 				}
 				case ('s'):
 				{
 					char *str = va_arg(ap, char *);
-					printf("%s\n", str);
+					printf("%s", str);
+					count++;
+					break;
+				}
+				case ('d'):
+				{
+					int k = va_arg(ap, int);
+					printf("%d", k);
+					count++;
+					break;
+				}
+				case ('i'):
+				{
+					int s = va_arg(ap, int);
+					printf("%i", s);
 					count++;
 					break;
 				}
 			}
 		}
 
-		format++;
+		++format;
 	}
 
 	va_end(ap);
