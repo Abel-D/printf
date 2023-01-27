@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	char *str;
 	char x;
 	int k;
+	unsigned int i;
 
 	va_start(ap, format);
 	while (*format != '\0')
@@ -54,6 +55,13 @@ int _printf(const char *format, ...)
 				{
 					k = va_arg(ap, int);
 					printf("%i", k);
+					count++;
+					break;
+				}
+				case ('u'):
+				{
+					i = va_arg(ap, unsigned int);
+					printf("%u", i);
 					count++;
 					break;
 				}
