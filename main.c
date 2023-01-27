@@ -10,6 +10,7 @@
 int main(void)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	int len;
 	int len2;
 	len = _printf("Let's try to printf a simple sentence.\n");
@@ -19,6 +20,8 @@ int main(void)
     _printf("Negative:[%d]\n", -762534);
   /*  _printf("Unsigned:[%u]\n", ui);
 =======
+=======
+>>>>>>> 71b2383 (fix)
     int len;
     int len2;
     unsigned int ui;
@@ -34,6 +37,7 @@ int main(void)
     printf("Negative:[%d]\n", -762534);
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
+<<<<<<< HEAD
 >>>>>>> 0ca0ad6fe085532011aff2e9fbbebbf432147ee3
     _printf("Unsigned octal:[%o]\n", ui);
     printf("Unsigned octal:[%o]\n", ui);
@@ -45,6 +49,11 @@ int main(void)
    
  
 =======
+=======
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+>>>>>>> 71b2383 (fix)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
@@ -56,6 +65,9 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
+<<<<<<< HEAD
 >>>>>>> 0ca0ad6fe085532011aff2e9fbbebbf432147ee3
+=======
+>>>>>>> 71b2383 (fix)
     return (0);
 }
