@@ -45,15 +45,15 @@ int _printf(const char *format, ...)
 				}
 				case ('d'):
 				{
-					int k = va_arg(ap, int);
+					k = va_arg(ap, int);
 					printf("%d", k);
 					count++;
 					break;
 				}
 				case ('i'):
 				{
-					int s = va_arg(ap, int);
-					printf("%i", s);
+					k = va_arg(ap, int);
+					printf("%i", k);
 					count++;
 					break;
 				}
