@@ -54,7 +54,6 @@ int _printf(const char *format, ...)
 				{
 					int s = va_arg(ap, int);
 					printf("%i", s);
-
 					count++;
 					break;
 				}
